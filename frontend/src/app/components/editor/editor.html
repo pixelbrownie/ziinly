@@ -1,0 +1,18 @@
+<div class="editor-container">
+  <h1>make your zine!</h1>
+  <p>click to upload image</p>
+  
+  <div class="zine-grid">
+    <div *ngFor="let page of pages; let i = index" 
+         class="grid-cell" 
+         [class.rotated]="page.rotated"
+         (click)="triggerUpload(i)">
+      
+      <div class="placeholder" *ngIf="!page.preview">
+        {{ page.label }}
+      </div>
+      
+      <img *ngIf="page.preview" [src]="page.preview" alt="Page preview">
+    </div>
+  </div>
+</div>

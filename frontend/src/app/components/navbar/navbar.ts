@@ -1,9 +1,27 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-navbar',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.css',
+  styleUrl: './navbar.css'
 })
-export class Navbar {}
+export class NavbarComponent {
+  isMenuOpen = false;
+
+  constructor(public authService: AuthService, private router: Router) {}
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+    this.isMenuOpen = false;
+  }
+}

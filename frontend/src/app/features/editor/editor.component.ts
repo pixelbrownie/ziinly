@@ -790,9 +790,10 @@ export class EditorComponent implements OnInit {
         // Reset file input
         this.fileInput.nativeElement.value = '';
       },
-      error: () => {
+      error: (err) => {
         this.uploadingCell.set(null);
-        this.toast.show('Upload failed.', 'error');
+        const msg = err.error?.error || 'Upload failed.';
+        this.toast.show(msg, 'error');
       },
     });
   }

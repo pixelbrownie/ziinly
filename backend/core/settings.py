@@ -4,8 +4,12 @@ Django settings for pixelbrownie Zines.
 from pathlib import Path
 from datetime import timedelta
 import os
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables from .env
+load_dotenv(BASE_DIR / '.env')
 
 SECRET_KEY = 'django-insecure-pixelbrownie-change-in-production-xyz-abc-123'
 

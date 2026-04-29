@@ -12,7 +12,6 @@ A full-stack Angular + Django application that lets users create zines from a 4�
 pixelbrownie-zines/
 ├── backend/
 │   ├── requirements.txt
-│   └── pixelbrownie/          ← Django project root
 │       ├── manage.py
 │       ├── core/              ← settings, urls, wsgi
 │       ├── users/             ← Custom User model + JWT auth
